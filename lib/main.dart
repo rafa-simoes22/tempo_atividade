@@ -49,18 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
+        Future.delayed(Duration(seconds: 5), () {
+          Navigator.of(context).pop(); // Fechar o AlertDialog após 5 segundos
+          Navigator.of(context).pop(); // Fechar o aplicativo
+        });
+
         return AlertDialog(
           title: Text('Encerrando Aplicativo'),
-          content: Text('O aplicativo será encerrado em breve.'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pop(); // Fechar o aplicativo
-              },
-            ),
-          ],
         );
       },
     );
